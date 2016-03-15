@@ -39,6 +39,16 @@ static double fmt_tp(const TestClient::TimePoint& t) {
 
 
 int main(int argc, char* argv[]) {
+  std::cout << std::setw(50) << "system clock resolution " <<
+    std::chrono::system_clock::period::num << "/" <<
+    std::chrono::system_clock::period::den << std::endl;
+  std::cout << std::setw(50) << "steady clock resolution " <<
+    std::chrono::steady_clock::period::num << "/" <<
+    std::chrono::steady_clock::period::den << std::endl;
+  std::cout << std::setw(50) << "high resolution clock resolution " <<
+    std::chrono::high_resolution_clock::period::num << "/" <<
+    std::chrono::high_resolution_clock::period::den << std::endl;
+
   using ClientMap = std::map<ClientId,TestClient*>;
   using ServerMap = std::map<ServerId,TestServer*>;
 
