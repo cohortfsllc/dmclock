@@ -34,15 +34,15 @@ namespace crimson {
 int main(int argc, char* argv[]) {
   // server params
 
-  const uint server_count = 100;
+  const uint server_count = 20;
   const uint server_iops = 40;
   const uint server_threads = 1;
 
   // client params
 
   const uint client_total_ops = 1000;
-  const uint client_count = 100;
-  const uint client_wait_count = 1;
+  const uint client_count = 20;
+  const uint client_wait_count = 0;
   const uint client_iops_goal = 50;
   const uint client_outstanding_ops = 100;
   const std::chrono::seconds client_wait(10);
