@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
 
     const uint client_total_ops = 1000;
     const uint client_count = 100;
-    const uint client_server_select_range = server_count;
+    const uint client_server_select_range = 8;
     const uint client_wait_count = 0;
     const uint client_iops_goal = 50;
     const uint client_outstanding_ops = 100;
