@@ -111,13 +111,24 @@ static bool stobool(const std::string & v) {
 	   atoi (v.c_str ()) != 0);
 }
 
-int crimson::qos_simulation::parse_config_file(const std::string &fname, sim_config_t &g_conf) {
+int crimson::qos_simulation::parse_config_file(const std::string &fname,
+					       sim_config_t &g_conf) {
   ConfFile cf;
   std::deque<std::string> err;
   std::ostringstream warn;
   int ret = cf.parse_file(fname.c_str(), &err, &warn);
   if (ret) {
     // error
+    std::string warning = warn.str();
+    if (!warning.empty()) {
+      std::cout << "Warnings:" << std::endl << warning << std::endl;
+    }
+    if (!err.empty()) {
+      std::cout << "Errors:" << std::endl;
+      for (auto i = err.cbegin(); i < err.cend(); ++i) {
+	std::cout << "    " << *i << std::endl;
+      }
+    }
     return ret;
   }
 

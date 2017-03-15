@@ -54,6 +54,9 @@ int main(int argc, char* argv[]) {
       ret = sim::parse_config_file(conf_file_list, g_conf);
       if (ret) {
 	// error
+	std::cerr <<
+	  "Error encountered parsing config file(s); exiting." <<
+	  std::endl;
 	_exit(1);
       }
     } else {
